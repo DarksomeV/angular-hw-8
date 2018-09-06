@@ -1,0 +1,62 @@
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple">
+  type="ball-scale-multiple">
+</ngx-spinner>
+
+<div class="container mt-5">
+  <div class="table-responsive">
+    <table class="table">
+     <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Company name</th>
+        <th></th>
+        <th></th>
+      </tr>
+     </thead>
+      <tbody>
+        <tr *ngFor="let user of users; let i = index">
+          <td>{{ i+1 }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.phone }}</td>
+          <td>{{ user.company.name }}</td>
+          <td><button class="btn btn-danger">Delete</button></td>
+          <td><button class="btn btn-primary" routerLink="/user/{{ user.id }}">Edit</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+<h2 class="mt-5">Todo List</h2>
+  <div class="todos-wrap">
+    <div class="table-responsive">
+      <table class="table todos">
+        <thead>
+        <tr>
+          <th>№</th>
+          <th>user#</th>
+          <th>Title</th>
+          <th>Completed</th>
+          <th></th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let todo of todos">
+          <th>{{ todo.id }}</th>
+          <th>{{ todo.userId }}</th>
+          <th>{{ todo.title }}</th>
+          <th>{{ todo.completed }}</th>
+          <th><button class="btn btn-primary" routerLink="/todo/{{ todo.id }}" >Edit</button></th>
+          <th><button class="btn btn-danger" (click)="onDeleteTodo(todo.id)">Delete</button></th>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
