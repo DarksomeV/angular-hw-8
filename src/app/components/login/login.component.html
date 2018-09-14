@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6 mx-auto">
+      <div class="card card-body">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" id="email" class="form-control" formControlName="email" [ngClass]="{'is-invalid': loginForm.get('email').invalid  && loginForm.get('email').dirty}">
+            <div class="invalid-feedback" *ngIf="loginForm.get('email').invalid  && loginForm.get('email').dirty">
+              Please provide a valid feedback!
+            </div>
+          </div>
+          <!-- /.form-group -->
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" class="form-control" formControlName="password" (blur)="onBlur('password')">
+          </div>
+          <!-- /.form-group -->
+          <button type="submit" class="btn btn-primary btn-block">Login</button>
+          <div class="signup text-center mt-2">
+            <p class="mb-0">or if you don`t have account you can:</p>
+            <a class="text-primary" routerLink="/sign-up">Sign up</a>
+          </div>
+        </form>
+      </div>
+      <!-- /.card card-body -->
+    </div>
+  </div>
+  <!-- /.row -->
+</div>

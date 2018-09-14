@@ -4,6 +4,7 @@ import { TodoService } from '../../services/todo.service';
 import { Todo } from '../../models/Todo';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
+import {FormGroup, FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-todo-add',
@@ -11,12 +12,8 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./todo-add.component.css']
 })
 export class TodoAddComponent implements OnInit {
+  todoAddForm: FormGroup;
 
-  newTodo: Todo = {
-    userId: 0,
-    title: '',
-    completed: false
-  };
   constructor(
     public todoService: TodoService,
     public router: Router,
@@ -25,12 +22,25 @@ export class TodoAddComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.todoAddForm = new FormGroup({
+      userId: new FormControl('',[Validators.required]),
+      title: new FormControl('',[Validators.required]),
+      completed: new FormControl('')
+    });
   }
 
   onAdd() {
+    console.log(this.todoAddForm);
+    if (this.todoAddForm.invalid) {return; }
     this.spinner.show();
 
-   this.todoService.addTodo(this.newTodo).subscribe((data: Todo) => {
+    const newTodo: Todo = {
+      userId: this.todoAddForm.value.userId,
+      title: this.todoAddForm.value.title,
+      completed: this.todoAddForm.value.completed
+    };
+
+   this.todoService.addTodo(newTodo).subscribe((data: Todo) => {
 
      this.toastr.success(`Todo #${data.id} successfully added.`, 'Success!');
      this.router.navigate(['/']);

@@ -15,6 +15,9 @@ import { TodoAddComponent } from './components/todo-add/todo-add.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { LoginComponent } from './components/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SignupComponent } from './components/signup/signup.component';
 
 
 @NgModule({
@@ -27,6 +30,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     UserEditComponent,
     TodoEditComponent,
     TodoAddComponent,
+    LoginComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     FormsModule,
     ToastrModule.forRoot(),
     NgxSpinnerModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

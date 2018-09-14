@@ -1,6 +1,6 @@
 <nav class="navbar navbar-dark bg-primary mb-3 justify-content-start">
   <a href="#" class="navbar-brand">{{ brand }}</a>
-  <div class="collapse show">
+  <div *ngIf="isAuth" class="collapse show" class="d-flex justify-content-between">
   <ul class="navbar-nav flex-row">
     <li class="nav-item" routerLinkActive="active"  [routerLinkActiveOptions]="{exact:true}">
       <a routerLink="/" class="nav-link">Home</a>
@@ -12,5 +12,6 @@
       <a routerLink="/add" class="nav-link">Add Todo</a>
     </li>
   </ul>
+    <a routerLink="/login" class="btn btn-light" (click)="onLogout()">Logout</a>
   </div>
 </nav>

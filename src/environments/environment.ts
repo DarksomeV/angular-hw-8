@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  api_url:'https://jsonplaceholder.typicode.com'
+  api_url:'https://jsonplaceholder.typicode.com',
+  auth_url: 'https://easycode-test-auth-server.herokuapp.com'
 };
 
 /*

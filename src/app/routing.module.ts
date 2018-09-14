@@ -6,13 +6,19 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import {UserEditComponent} from './components/user-edit/user-edit.component';
 import { TodoEditComponent } from './components/todo-edit/todo-edit.component';
 import { TodoAddComponent } from './components/todo-add/todo-add.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { AuthGuard } from './guards/auth.guard';
+
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'about', component: AboutComponent},
-  {path: 'user/:id', component: UserEditComponent},
-  {path: 'todo/:id', component: TodoEditComponent},
-  {path: 'add', component: TodoAddComponent},
+  {path: 'login', component: LoginComponent},
+  { path: 'signup', component: SignupComponent },
+  {path: '', component: HomeComponent, canActivate: [AuthGuard]},
+  {path: 'about', component: AboutComponent, canActivate: [AuthGuard]},
+  {path: 'user/:id', component: UserEditComponent, canActivate: [AuthGuard]},
+  {path: 'todo/:id', component: TodoEditComponent, canActivate: [AuthGuard]},
+  {path: 'add', component: TodoAddComponent, canActivate: [AuthGuard]},
   {path: '**', component: NotFoundComponent}
 ];
 
@@ -20,6 +26,7 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes)
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class RoutingModule { }

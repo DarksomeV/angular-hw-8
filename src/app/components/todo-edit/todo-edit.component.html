@@ -8,15 +8,13 @@
 
 <div class="container mt-5">
   <div class="card card-body">
-    <form>
+    <form [formGroup]="todoEditForm" (ngSubmit)="onEdit()">
       <div class="form-group">
         <label for="userId">UserId</label>
         <input type="text"
-               name="userId"
                id="userId"
                class="form-control"
-               [ngModel]="todo?.userId"
-               (ngModelChange)="todo.userId = $event"
+               formControlName="userId"
                required
                readonly
         >
@@ -24,23 +22,20 @@
       <div class="form-group">
         <label for="title">Title</label>
         <input type="text"
-               name="title"
                id="title"
                class="form-control"
-               [ngModel]="todo?.title"
-               (ngModelChange)="todo.title = $event"
+               formControlName="title"
                required
                [readonly]="isReadOnly"
+               [ngClass]="{'is-invalid': todoEditForm.get('title').invalid  && todoEditForm.get('title').dirty}"
         >
       </div>
       <div class="form-group">
         <label for="completed">Completed</label>
         <input type="text"
-               name="completed"
                id="completed"
                class="form-control"
-               [ngModel]="todo?.completed"
-               (ngModelChange)="todo.completed = $event"
+               formControlName="completed"
                required
                [readonly]="isReadOnly"
         >
