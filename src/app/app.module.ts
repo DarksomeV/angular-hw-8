@@ -18,6 +18,16 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './components/signup/signup.component';
+import { MySlicePipe } from './pipes/mySlice.pipe';
+import { MyDatePipe } from './pipes/myDate.pipe';
+import { MyArrPipe } from './pipes/myArr.pipe';
+import {JoinPipe} from './pipes/join.pipe';
+import { BgDirective } from './directives/bg.directive';
+import { MyIfDirective } from './directives/my-if.directive';
+import { MyLoopDirective } from './directives/my-loop.directive';
+import { FiltersComponent } from './components/filters/filters.component';
+import { MyStyleDirective } from './directives/my-style.directive';
+import { MyClassDirective } from './directives/my-class.directive';
 
 
 @NgModule({
@@ -32,6 +42,16 @@ import { SignupComponent } from './components/signup/signup.component';
     TodoAddComponent,
     LoginComponent,
     SignupComponent,
+    MySlicePipe,
+    MyDatePipe,
+    JoinPipe,
+    BgDirective,
+    MyIfDirective,
+    MyLoopDirective,
+    FiltersComponent,
+    MyArrPipe,
+    MyStyleDirective,
+    MyClassDirective
   ],
   imports: [
     BrowserModule,

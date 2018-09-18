@@ -9,6 +9,7 @@ import { TodoAddComponent } from './components/todo-add/todo-add.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { AuthGuard } from './guards/auth.guard';
+import { FiltersComponent } from './components/filters/filters.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: 'user/:id', component: UserEditComponent, canActivate: [AuthGuard]},
   {path: 'todo/:id', component: TodoEditComponent, canActivate: [AuthGuard]},
   {path: 'add', component: TodoAddComponent, canActivate: [AuthGuard]},
+  {path: 'filters', component: FiltersComponent, canActivate: [AuthGuard]},
   {path: '**', component: NotFoundComponent}
 ];
 

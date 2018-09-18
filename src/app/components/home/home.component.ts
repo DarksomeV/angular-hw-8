@@ -12,8 +12,9 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-users: User[];
+users: User[] = [];
 todos: Todo[];
+testPipe = ['One', 'Two'];
   constructor(
     public  usersService: UsersService,
     public  todosService: TodoService,

@@ -3,10 +3,12 @@
   size="medium"
   color="#fff"
   type="ball-scale-multiple">
-  type="ball-scale-multiple">
 </ngx-spinner>
 
 <div class="container mt-5">
+  <!--<p>{{ users | join:'email' }}</p>-->
+  <!--<div class="alert alert-info" *myIf="!users.length">pama</div>-->
+  <div class="alert alert-danger" *appMyLoop="let user of users">{{user.name}}</div>
   <div class="table-responsive">
     <table class="table">
      <thead>
@@ -22,10 +24,10 @@
      </thead>
       <tbody>
         <tr *ngFor="let user of users; let i = index">
-          <td>{{ i+1 }}</td>
+          <td [appBg]="'red'" [fontSize]="'25px'">{{ i+1 }}</td>
           <td>{{ user.name }}</td>
           <td>{{ user.email }}</td>
-          <td>{{ user.phone }}</td>
+          <td>{{ user.phone | myslice:0:5 }}</td>
           <td>{{ user.company.name }}</td>
           <td><button class="btn btn-danger">Delete</button></td>
           <td><button class="btn btn-primary" routerLink="/user/{{ user.id }}">Edit</button></td>
