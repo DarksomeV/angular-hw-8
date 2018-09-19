@@ -10,7 +10,7 @@ export class MyClassDirective {
     private renderer: Renderer2
   ) { }
 
-  @Input() set appMyClass(value: string | string[] | { [myClass: string]: any}) {
+  @Input() set appMyClass(value: any | { [myClass: string]: any}) {
     switch (typeof value) {
       // if object
       case 'object': {
